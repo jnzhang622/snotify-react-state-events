@@ -1,6 +1,12 @@
 import React from 'react';
+import SongItem from './SongItem'
 
 const Queue = props => {
+    let state = {
+        songQueue: []
+    }
+
+    
     let currentSong = null // TODO: how do you figure out what the current song is? 
     
     return (
@@ -15,11 +21,7 @@ const Queue = props => {
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" >
             </iframe>}
             <ol>
-                <li>Empty Sample LI</li>
-                {/**
-                 * TODO: Render all the songs in your queue here!
-                 * 
-                 */}
+                <li>{state.songQueue.map(song => <SongItem {...song} key={song.id} /> )}</li>
             </ol>
         </div>
     )
